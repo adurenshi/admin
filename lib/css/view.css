@@ -1,0 +1,22 @@
+ /*标签页样式  背景绿*/
+      .nav-tabs>li>a {
+    background-color: #f3f3f3;
+    background-color: rgba(0,0,0,.05);
+    border: 0;
+    border-bottom: 2px solid #e4e4e4;
+    color: #777;
+    margin: 0 6px -1px 0;
+    padding: 8px 20px;
+  }
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+    background: #67cea6;
+    border-bottom: 2px solid #54c89b;
+    color: #fff;
+  }
+  .tab-content {
+    padding: 15px 0;
+}
+/*字体颜色*/
+ .text-info{
+    color: #39b3d7;
+   }

@@ -1,0 +1,89 @@
+ 
+/*网页头样式*/
+ .header{
+                 margin: 0px 0em 1.0em 0em;
+                padding: 1em 0em 0.4em 0em;
+        }
+/*导航条头*/
+ .navbar-header{
+            margin-right: 113px;
+        }
+.fa-caret-right{
+	margin-left: 20px;
+}
+  /*tabledata页脚*/
+  .dataTables_wrapper .dataTables_paginate .paginate_button{
+    padding: 0 0;
+   }
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+      border: 1px solid #fafafa;
+   }
+   .dataTables_wrapper .dataTables_paginate .paginate_button:{
+      border: 1px solid #fafafa;
+   }
+   table.dataTable.no-footer {
+    border-bottom: 1px solid #ccc;
+}
+/*datatables总条目字体*/
+#example_info{
+    color: #4D5B76;
+   }
+
+/*危险按钮*/
+   .btn-danger{
+   border-color: #e3503e;
+	border-bottom-color: #df3823;
+	background: #e66454;
+	background-image: -webkit-linear-gradient(top,#e76858 0,#e3503e 100%);
+	background-image: linear-gradient(to bottom,#e76858 0,#e3503e 100%);
+	background-repeat: repeat-x;
+   }
+ 
+/*成功按钮*/
+.btn-success{
+            color: #fff;
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from( #5cb85c), to( #5cb85c));
+
+        }
+   /*提醒按钮*/
+
+.btn-warning {
+	color: #fff;
+
+    background-color: #aaaa55;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f0ad4e), to(#eea236));
+    border: 1px solid #eea236;
+    font-weight: normal;
+}
+
+   /*链接样式*/
+   a:link {
+              text-decoration: none;
+        } 
+a:hover{
+    cursor: pointer;
+}
+
+/*左侧导航条向右（>）图标样式*/
+ .far{
+	    	float: right;
+	    	margin-right: 10px;
+	    	margin-top: 8px;
+}
+ .form-row{
+    margin-bottom: 15px;
+   }
+   /*插入空白  调整间距*/
+.space{
+    margin-left:25px;
+   }
+   /*按钮菜单*/
+ .buttonmenu{
+   	margin-bottom: 20px;
+}
+/*input开始结束时间*/
+ #begindate,#enddate{
+    width: 150px;
+
