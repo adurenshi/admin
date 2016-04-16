@@ -124,7 +124,7 @@ require "../datamenu.php";
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <button id="submit" class="btn btn-success">提交</button>
+                  <button id="submit" type="submit" class="btn btn-success">提交</button>
                 </div>
               </div>
             </form>
@@ -166,8 +166,11 @@ require "../datamenu.php";
              }
         });
        $("#submit").click(function(event){
+        //$("form").submit(function(){  
           event.preventDefault();//阻止表单提交
-          window.location.href='blist.php';
+          $("#submit").attr("disabled","disabled"); //阻止表单多次提交
+          alert(1); 
+          //window.location.href='blist.php';
        });
 
   });

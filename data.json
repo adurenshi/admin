@@ -1,0 +1,11 @@
+{"department":[{"id":1,"level":1,"name":"zhenlanghuo"},
+{"id":2,"level":2,"name":"测试部门","parentid":1},
+{"id":3,"level":2,"name":"开发部门","parentid":1},
+{"id":5,"level":2,"name":"采购部","parentid":1},
+{"id":14,"level":2,"name":"test","parentid":1},
+{"id":15,"level":2,"name":"市场部","parentid":1},
+{"id":16,"level":2,"name":"美术部","parentid":1},
+{"id":6,"level":3,"name":"软件测试","parentid":2},
+{"id":7,"level":3,"name":"算法测试","parentid":2},
+{"id":8,"level":4,"name":"算法test","parentid":7}
+]}

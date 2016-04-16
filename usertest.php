@@ -13,66 +13,97 @@ require "usersmenu.php";
     <link rel="stylesheet" type="text/css" href="lib/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
     <script src="lib/bootstrap-datetimepicker-master/bootstrap-datetimepicker.min.js"></script>
     <script src="lib/bootstrap-datetimepicker-master/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="lib/myjs/user.js"></script>
     <style type="text/css">
    
    .department{
-    overflow: scroll;
+      background: #fafafa;
+      height: 500px;
+   }
+
+    #searchdept{
+      width: 65%;
+      height: 34px;
+        padding-left: 5px ;
+        font-size: 13px;
+        line-height: 1.32857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+     .searchdiv{
+          padding:15px 0 0 15px; 
+     }
+
+     .text-danger{
+      color: #e14430;
+     }
    
-    background: #fafafa;
-    width: 260px;
-    height: 400px;
-   }
-.firstmenu li{
-  width: 320px;
-}
+     .dropdown{
+      display: inline-block;
+     }
 
-.glyphicon-search{
-  text-align: center;
-}
-#searchdept{
-  width: 60%;
-  height: 34px;
-    padding-left: 5px ;
-    font-size: 13px;
-    line-height: 1.32857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-   .searchdiv{
-   	margin-bottom: 13px;
-   }
-
-   .text-danger{
-    color: #e14430;
-   }
-   .form-inline{
-    margin-bottom: 5px;
-   }
-   
-   .dropdown{
-    display: inline-block;
-   }
-   ul.tanchuang{
-    position: relative;
-    float: left;
-    left:420px;
-    margin-top: -500px;
-    display: block;
-   }
-   .sidebar-nav .nav-list{
-    margin-left: 15px;
-   }
-  .sidebar-nav .nav-list > li:hover{
-    border-left: 0px solid #FAFAFA;
-
-  }
   
-   .sidebar-nav .nav-list.collapse.in {
-      border: 1px solid #FAFAFA;
-}
+     .sidebar-nav- .ul-list{
+      margin-left: 15px;
+     }
+    
+
+    .nav>li>a:hover,.sidebar-nav- .ul-list > li > a:hover,.a_active {
+      background: #d2d2dd;
+    }
+    ul.firstmenu{
+        padding: 1em 1em 1em 1em;
+        text-align: left;
+        list-style: none;  
+    }
+    ul.firstmenu li a{
+      color: #222;
+      padding: 0.5em 1em;
+    }
+
+    .sidebar-nav- li {
+      border-bottom: 1px solid #FAFAFA;
+    }
+  
+
+    ul.tanc-menu {
+        height:90px;
+        z-index: 1000;
+        padding: 3px 0 0 0;
+        margin:2px;
+        font-size: 14px;
+        text-align: left;
+        list-style: none;
+        background-color: #fff;
+    }
+    
+    .tanc-menu>li>a {
+        display: block;
+        padding: 1px 20px;
+        clear: both;
+        font-weight: 200;
+        line-height: 0.4;
+        color: #333;
+        white-space: nowrap;
+    }
+    ul.tanc-menu > li > a:hover {
+      background: #d2d2dd;
+    }
+
+    .popover{
+
+      width: 140px;
+      height:120px;
+    }
+    .tanc-menu .divider {
+        height: 2px;
+        margin: 5px 0;
+        overflow: hidden;
+        background-color: #e5e5e5;
+    }
     </style>
     </head>
     <body>
@@ -88,6 +119,7 @@ require "usersmenu.php";
           
             <div class="row">
               <div class="col-sm-3 col-md-3 col-lg-3">
+              <div class="department">
              <div class="searchdiv">
                 <input type="text"  id="searchdept" placeholder="搜索部门">
                 
@@ -117,58 +149,47 @@ require "usersmenu.php";
               </div>
           
                 
-            <div class="sidebar-nav department" >
-              <ul class="firstmenu">
+            <div class="sidebar-nav- ">
+              <ul class="firstmenu nav">
+             
           <!--1  -->
-<div  class="tanchuang" style="display:none;">
-                <ul class="dropdown-menu tanchuang" >
-                    <!-- 弹窗部门 -->
-                    <li><a href="javascript:void(0);" id="addchild" data-ng-click="addChildDepartment(dep)">添加子部门</a></li>
-                     <li role="presentation" class="divider"></li>
-                    <!-- 弹窗部门_初始化 -->
-                    <!-- ngIf: !(dep.cd_id == departmentList[0].cd_id) --><li data-ng-if="!(dep.cd_id == departmentList[0].cd_id)" class="ng-scope">
-                   
-                        <a href="javascript:void(0);" data-ng-click="editChildDepartment(dep)">编辑</a>
-                    </li><!-- end ngIf: !(dep.cd_id == departmentList[0].cd_id) -->
-                    <!-- 弹窗保险机制是否确定 -->
-                     <li role="presentation" class="divider"></li>
-                    <!-- ngIf: !(dep.cd_id == departmentList[0].cd_id) --><li data-ng-if="!(dep.cd_id == departmentList[0].cd_id)" class="ng-scope">
-                    
-                        <a href="javascript:void(0);" data-ng-click="delDepartment(dep)">删除</a>
-                    </li><!-- end ngIf: !(dep.cd_id == departmentList[0].cd_id) -->
-                </ul>
-            </div>
+
 <!--1  -->
 
 
-              <li><a  class="treea nav-header"><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> 一级部门(17)  <span  onClick="showaddmenu(this)" class="glyphicon glyphicon-plus-sign adddept" style="display: none"></span>  </a>
+              <!-- <li><a  class="treea nav-header"><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> 一级部门(17) <span class="glyphicon glyphicon-plus-sign adddept" data-toggle="popover"  style="display: none"></span>
+
+                </a>
               </li>
       
 
-              <li><ul class="nav nav-list collapse in dashboard-menu1">
-                    <li><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> 研发部 (6) <span  onClick="showaddmenu(this)" class="glyphicon glyphicon-plus-sign adddept" style="display: none"></span></a></li>
+              <li><ul class="nav ul-list collapse in dashboard-menu1">
+                    <li><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> 研发部 (6) <span class="glyphicon glyphicon-plus-sign adddept"  data-toggle="popover"  style="display: none"></span></a></li>
 
 
-                    <li><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> 商务部 (4) <span  onClick="showaddmenu(this)" class="glyphicon glyphicon-plus-sign adddept" style="display: none"></span></a></li>
-                    <li><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> 管理层 (5) <span  onClick="showaddmenu(this)" class="glyphicon glyphicon-plus-sign adddept" style="display: none"></span></a></li>
-                    <li><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> 面试人员 (0) <span  onClick="showaddmenu(this)" class="glyphicon glyphicon-plus-sign adddept" style="display: none"></span></a></li>
-                    <li><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> OA (2) <span  onClick="showaddmenu(this)" class="glyphicon glyphicon-plus-sign adddept" style="display: none"></span></a></li>
+                    <li><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> 商务部 (4) <span class="glyphicon glyphicon-plus-sign adddept"  data-toggle="popover"  style="display: none"></span></a></li>
+                    <li><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> 管理层 (5) <span class="glyphicon glyphicon-plus-sign adddept"  data-toggle="popover" style="display: none"></span></a></li>
+                    <li><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> 面试人员 (0) <span class="glyphicon glyphicon-plus-sign adddept"  data-toggle="popover" style="display: none"></span></a></li>
+                    <li><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> OA (2) <span class="glyphicon glyphicon-plus-sign adddept"  data-toggle="popover" style="display: none"></span></a></li>
                 </ul></li>
 
-                    <li><a  class="treea nav-header"><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> 华南理工大学(10) <span onclick="showaddmenu(this)" class="glyphicon glyphicon-plus-sign adddept" style="display:none;"></span></a></li>
-                    <li><ul class="nav nav-list collapse in dashboard-menu">
-                        <li><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> B3 (6) <span onclick="showaddmenu(this)" class="glyphicon glyphicon-plus-sign adddept" style="display:none;"></span></a></li>
-                        <li><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> B1 (4) <span onclick="showaddmenu(this)" class="glyphicon glyphicon-plus-sign adddept" style="display:none;"></span></a></li>
+                    <li><a  class="treea nav-header"><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> 华南理工大学(10) <span class="glyphicon glyphicon-plus-sign adddept"  data-toggle="popover" style="display: none"></span></a></li>
+                    <li><ul class="nav ul-list collapse in dashboard-menu">
+                        <li><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> B3 (6) <span class="glyphicon glyphicon-plus-sign adddept"  data-toggle="popover" style="display: none"></span></a></li>
+                        <li><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> B1 (4) <span class="glyphicon glyphicon-plus-sign adddept"  data-toggle="popover" style="display: none"></span></a></li>
                        
-                    </ul></li>
+                    </ul></li> -->
+
+                   
                 </ul>
 
 
 
               </div>
+              </div>
 
            </div>
-            <div class="col-sm-9 col-md-9 col-lg-9">
+            <div class="col-sm-9 col-md-9 col-lg-9" style="margin-left: -20px;">
             <div class="buttonmenu">
       <button type="button" id="add" class="btn btn-info">添加员工</button>
       <button type="button" id="delete" class="btn btn-danger">删除员工</button>
@@ -471,7 +492,7 @@ $(function() {
               $(".sidebar-nav  li:eq(0) .glyphicon-menu-right").hide();
              
             }
-        });
+});
 
 $('#Birthday').datetimepicker({ 
 　　minView: "month", //选择日期后，不会再跳转去选择时分秒 
@@ -480,75 +501,34 @@ $('#Birthday').datetimepicker({
 　　autoclose:true //选择日期后自动关闭 
 });
     function slidefun(obj){
-     
-         $(obj).parent().parent().next().find("ul").first().slideToggle("slow");
+       $(obj).toggleClass("glyphicon glyphicon-triangle-right");
+      $(obj).toggleClass("glyphicon glyphicon-triangle-bottom");
+         $(obj).parent().parent().next().find("ul").first().slideToggle("");
 
     }
-
-
-        var $node;
-
-    function showaddmenu(obj){
-
-      var e = event || window.event;
-      var scrollX=$(".department").scrollLeft();
-      var scrollY=$(".department").scrollTop();
-      //alert(scrollY);
-            //var scrollX = document.getElementById("department").scrollLeft || document.body.scrollLeft;
-            //var scrollY = document.getElementById("department").scrollTop || document.body.scrollTop;
-            var x = e.pageX || e.clientX - scrollX ;
-            var y = e.pageY || e.clientY - scrollY;
-            //alert('x: ' + x + '\ny: ' + y);
-           // return { 'x': x, 'y': y };
-           // var e = event || window.event;
-           //   var pointx=e.clientX-200;
-           // var pointy=e.clientY+320;
-          //alert(pointx+" "+pointy);
-            $(".tanchuang").css({ left: x-245, top:y+320 }); 
-            //node = $(this).prev().text();
-            //alert(obj.parentNode.innerHTML);
-            $node = $(obj);
-            $(".tanchuang").show(); 
-            $(".mainmenu").hide();
-            event.stopPropagation();
-        }
-        //alert(node.text());
-        $("#addchild").click(function(){
-        //$("#addchild").on("click", function() {
-          if($node.parent().parent().next().find("ul").first().length<1){
-            var menu_ul = '<li><ul class="nav nav-list collapse in "></ul></li>';
-            $node.parent().parent().after(menu_ul);
-          }
-          //alert($node.parent().next().find("ul").first().length);
-          //var menuul = '<ul class="nav nav-list collapse in "></ul>'
-          //$(this).append(menuli) ;
-          //alert($node.prev().text());
-          var menuli ='<li ><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> testt(0) <span onclick="showaddmenu(this)" class="glyphicon glyphicon-plus-sign adddept" style="display:none;"></span></a></li>';
-        // //$("ul.firstmenu ul").append(menuli) ;
-       $node.parent().parent().next().find("ul").first().append(menuli);
-        $('ul.firstmenu li a').hover(function(){
-                  $(this).children(".adddept").show();
-                 },function(){
-                        $(this).children(".adddept").hide();
-            });
-            //$(".glyphicon-triangle-bottom").click(function(){
+    function addchildf(obj){
+      $node = $(obj);
+      //alert($node.parents(".treea").html());
+      if($node.parents("li:eq(1)").next().find("ul").first().length<1){
         
-         // $(this).parent().parent().next().find("ul").first().slideToggle("slow");
-        //});
-    });
+            var menu_ul = '<li><ul class="nav ul-list collapse in "></ul></li>';
+            $node.parents(".popover").parent().parent().after(menu_ul);
+          }
+          var menuli ='<li ><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> testt(0)  <span class="glyphicon glyphicon-plus-sign adddept"  data-toggle="popover"  data-html="true" data-placement="bottom" data-content="" style="display: none"></span></a></li>';
        
-      
-
-    
-
-    $(document).click(function() {
-      $(".mainmenu").hide();
-      $('.tanchuang').hide();
-    });
-    $(".plusmenu").click(function() {
-      $(".mainmenu").show();
-      $('.tanchuang').hide();
-    });
+         $node.parents(".popover").parent().parent().next().find("ul").first().append(menuli);
+         //刷新网页 以下可不做
+          $('ul.firstmenu li a').hover(function(){
+                    $(this).children(".adddept").show();
+                   },function(){
+                          $(this).children(".adddept").hide();
+              });
+          if($(".firstmenu").height()>440){
+             $(".department").css("overflow","scroll");
+          }
+          
+    }
+ 
     $(document).ready(function() {
       
         var table=$('#example').DataTable();
@@ -578,38 +558,42 @@ $('#Birthday').datetimepicker({
           });
     } );
 
-    $(function(){
-  
-      $("#adddeptmenu").click(function(){
-
-        var menuli ='<li><a  class="treea nav-header"><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> 华南理工大学(10) <span onclick="showaddmenu(this)" class="glyphicon glyphicon-plus-sign adddept" style="display:none;"></span></a></li>';
-        $("ul.firstmenu").append(menuli) ;
-        $('ul.firstmenu li a').hover(function(){
-                  $(this).children(".adddept").show();
-                 },function(){
-                        $(this).children(".adddept").hide();
-            });
-      });
-
-      $('ul.firstmenu li a').hover(function(){
-                  $(this).children("span.adddept").show();
-                 },function(){
-                        $(this).children(".adddept").hide();
-          });
-
-    //        $("ul.firstmenu li").on("mouseover",function(){
-    //     $(this).children("i.adddept").show();
-    // }).on("mouseout",function(){
-    //    $(this).children("i.adddept").hide();
-    // });
+    // $('body').on('click', function(event) {  
       
+    //         var target = $(event.target); // One jQuery object instead of 3  
+          
+    //         if (!target.hasClass('adddept') ){  
+    //             $("[data-toggle='popover']").popover('hide');  
+    //         }  
+    // });  
    
-      // $(".adddept").click(function(){
-    //            alert(1);
-    //         });
-      $("#add").click(function(){
-        $("#addModal").modal();
-      });
+    $(function(){
+      // $('.adddept').popover({
+      //     html:true,
+      //     placement:"bottom",
+      //     content: '<ul class="tanc-menu" > <li><a href="javascript:void(0);" id="addchild" onclick="addchildf(this)">添加子部门</a></li> <li role="presentation" class="divider"></li> <li ><a href="javascript:void(0);" >编辑</a> </li> <li role="presentation" class="divider"></li><li><a href="javascript:void(0);" >删除</a> </li> </ul>'
+      //   });
+       $("#adddeptmenu").click(function(){
+
+            var menuli ='<li><a  class="treea nav-header"><span class="glyphicon glyphicon-triangle-right" onclick="slidefun(this)"></span> 华南理工大学(10) <span class="glyphicon glyphicon-plus-sign adddept"  data-toggle="popover"  data-html="true" data-placement="bottom" data-content="" style="display: none"></span></a></li>';
+         
+            $("ul.firstmenu").append(menuli) ;
+            $('ul.firstmenu li a').hover(function(){
+                      $(this).children(".adddept").show();
+                     },function(){
+                            $(this).children(".adddept").hide();
+                });
+        });
+        
+        // var tanc =' <ul class="tanc-menu" > <li><a href="javascript:void(0);" id="addchild" onclick="addchildf(this)">添加子部门</a></li> <li role="presentation" class="divider"></li> <li ><a href="javascript:void(0);" >编辑</a> </li> <li role="presentation" class="divider"></li><li><a href="javascript:void(0);" >删除</a> </li> </ul> ';
+        // $("[data-toggle='popover']").attr('data-content',tanc);
+        // $("[data-toggle='popover']").popover();
+        
+         
+
+        $("#add").click(function(){
+          $("#addModal").modal();
+        });
 
     });
 
