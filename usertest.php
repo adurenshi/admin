@@ -1,5 +1,6 @@
 <?php
 require "usersmenu.php";
+
 ?>
 
 <!doctype html>
@@ -17,12 +18,12 @@ require "usersmenu.php";
     <style type="text/css">
    
    .department{
-      background: #fafafa;
-      height: 500px;
+      background: #f5f5f5;
+      height: 550px;
    }
 
     #searchdept{
-      width: 65%;
+      width: 62%;
       height: 34px;
         padding-left: 5px ;
         font-size: 13px;
@@ -34,7 +35,7 @@ require "usersmenu.php";
         border-radius: 4px;
     }
      .searchdiv{
-          padding:15px 0 0 15px; 
+          padding:0px 0 0 15px; 
      }
 
      .text-danger{
@@ -65,9 +66,31 @@ require "usersmenu.php";
     }
 
     .sidebar-nav- li {
-      border-bottom: 1px solid #FAFAFA;
+      border-bottom: 1px solid #f5f5f5;
     }
-  
+   ul.tanc-menu-1 {
+        height:20px;
+        z-index: 1000;
+        padding: 2px 0 0 0;
+        margin:2px;
+        font-size: 14px;
+        text-align: left;
+        list-style: none;
+        background-color: #fff;
+    }
+    .treea .popover{
+        height:50px;
+        z-index: 1000;
+        padding: 3px 0 0 0;
+        margin:2px;
+        font-size: 14px;
+        text-align: left;
+        list-style: none;
+        background-color: #fff;
+    }
+    .treea .popover a:hover {
+      background: #DFF0D8;
+    }
 
     ul.tanc-menu {
         height:90px;
@@ -85,12 +108,12 @@ require "usersmenu.php";
         padding: 1px 20px;
         clear: both;
         font-weight: 200;
-        line-height: 0.4;
+        line-height: 0.5;
         color: #333;
         white-space: nowrap;
     }
     ul.tanc-menu > li > a:hover {
-      background: #d2d2dd;
+      background: #DFF0D8;
     }
 
     .popover{
@@ -103,6 +126,23 @@ require "usersmenu.php";
         margin: 5px 0;
         overflow: hidden;
         background-color: #e5e5e5;
+    }
+    .leaderchoose {
+        border: solid 1px #ccc;
+        min-height: 34px;
+        overflow: hidden;
+    }
+    .leadlabel{
+      margin: 5px 2px;
+      float: left;
+      background-color: #f4b04f;
+      border-radius: 5px;
+      padding: 2px 5px;
+      color: #ffffff;
+    }
+    .leadlabel strong{
+      cursor: pointer;
+      padding-left:4px;
     }
     </style>
     </head>
@@ -334,156 +374,7 @@ require "usersmenu.php";
         </div>
          </div><!-- div content -->
 
- <!-- 模态框（Modal） -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" 
-   aria-labelledby="myModalLabel" aria-hidden="true">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-            <button type="button" class="close" 
-               data-dismiss="modal" aria-hidden="true">
-                  &times;
-            </button>
-            <h4 class="modal-title" id="myModalLabel">
-               <center><span class="glyphicon glyphicon-exclamation-sign"></span>  提示</center>
-            </h4>
-         </div>
-         <div class="modal-body">
-            <center><font size="4">请选择要删除的条目！</font></center>
-         </div>
-         <div class="modal-footer">
-            <button type="button" class="btn btn-default" 
-               data-dismiss="modal">关闭
-            </button>
-           
-         </div>
-      </div><!-- /.modal-content -->
-      </div>
-</div><!-- /.modal -->
 
-<!-- deletemodal -->
-<div class="modal small fade" id="suredelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">删除员工</h3>
-        </div>
-        <div class="modal-body">
-            <p class="error-text"><i class="fa fa-warning modal-icon"></i>你确定要删除这条记录信息吗？<br>删除之后不能恢复。</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
-            <button class="btn btn-danger" id="yesdelete" data-dismiss="modal">删除</button>
-        </div>
-      </div>
-    </div>
-</div>
-<!-- deletemodal -->
-
-
-
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">添加人员</h4>
-      </div>
-      <div class="modal-body">
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label for="recipient-name" class="col-sm-3 control-label"><span class="text-danger">*</span>姓名:</label>
-             <div class="col-sm-7">
-              <input type="text" class="form-control" id="recipient-name">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="message-text" class="col-sm-3 control-label">帐号:</label>
-             <div class="col-sm-7">
-            <input type="text" class="form-control" id="message-text"></textarea>
-            </div>
-          </div>
-
-          <div class="form-group">
-           <label for="message-text" class="col-sm-3 control-label"><span class="text-danger">*</span>性别:</label>
-           <div class="col-sm-7">
-            <label class="radio-inline">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 男
-      </label>
-      <label class="radio-inline">
-         <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 女
-      </label></div>
-    </div>
-
-     <div class="form-group">
-            <label for="message-text" class="col-sm-3 control-label"><span class="text-danger">*</span>选择部门:</label>
-             <div class="col-sm-7">
-            <button type="button" class="btn btn-info">选择部门</button></div>
-          </div>
-    <div class="form-group">
-            <label for="message-text" class="col-sm-3 control-label"></label>
-             <div class="col-sm-7">
-            <input type="text" class="form-control" id="message-text" readOnly="true"></textarea></div>
-          </div>
-
-           <div class="form-group">
-            <label for="message-text" class="col-sm-3 control-label">直属上级:</label>
-             <div class="col-sm-7">
-            <button type="button" class="btn btn-info">选择上级</button></div>
-          </div>
-    <div class="form-group">
-            <label for="message-text" class="col-sm-3 control-label"></label>
-             <div class="col-sm-7">
-            <input type="text" class="form-control" id="message-text" readOnly="true"></textarea></div>
-          </div>
-
-          <div class="form-group">
-            <label for="message-text" class="col-sm-3 control-label">手机号:</label>
-             <div class="col-sm-7">
-            <input type="text" class="form-control" id="message-text"></textarea></div>
-          </div>
-
-          <div class="form-group">
-            <label for="message-text" class=" col-sm-3 control-label">微信号:</label>
-             <div class="col-sm-7">
-            <input type="text" class="form-control" id="message-text"></textarea></div>
-          </div>
-
-          <div class="form-group">
-            <label for="message-text" class="col-sm-3 control-label">电子邮箱:</label>
-             <div class="col-sm-7">
-            <input type="email" class="form-control" id="message-text"></textarea>
-            </div>
-          </div>
-
-    <div class="form-group">
-            <label for="message-text" class="col-sm-3 control-label">生日:</label>
-             <div class="col-sm-7">
-            <input type="text" class="form-control" id="Birthday"></textarea></div>
-          </div>
-
-          <div class="form-group">
-            <label for="message-text" class="col-sm-3 control-label">地址:</label>
-             <div class="col-sm-7">
-            <input type="text" class="form-control" id="message-text"></textarea></div>
-          </div>
-
-          <div class="form-group">
-            <label for="message-text" class="col-sm-3 control-label">职位:</label>
-             <div class="col-sm-7">
-            <input type="text" class="form-control" id="message-text"></textarea></div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary">提交</button>
-      </div>
-    </div>
-  </div>
-</div>
 <input type="hidden" value="userslist.php" id="currenturl">
 <script type="text/javascript">
 $(function() {
@@ -506,28 +397,28 @@ $('#Birthday').datetimepicker({
          $(obj).parent().parent().next().find("ul").first().slideToggle("");
 
     }
-    function addchildf(obj){
-      $node = $(obj);
-      //alert($node.parents(".treea").html());
-      if($node.parents("li:eq(1)").next().find("ul").first().length<1){
+    // function addchildf(obj){
+    //   $node = $(obj);
+    //   //alert($node.parents(".treea").html());
+    //   if($node.parents("li:eq(1)").next().find("ul").first().length<1){
         
-            var menu_ul = '<li><ul class="nav ul-list collapse in "></ul></li>';
-            $node.parents(".popover").parent().parent().after(menu_ul);
-          }
-          var menuli ='<li ><a><span class="glyphicon glyphicon-list" onclick="slidefun(this)"></span> testt(0)  <span class="glyphicon glyphicon-plus-sign adddept"  data-toggle="popover"  data-html="true" data-placement="bottom" data-content="" style="display: none"></span></a></li>';
+    //         var menu_ul = '<li><ul class="nav ul-list collapse in "></ul></li>';
+    //         $node.parents(".popover").parent().parent().after(menu_ul);
+    //       }
+    //       var menuli ='<li ><a><span class="glyphicon glyphicon-triangle-right" onclick="slidefun(this)"></span> testt(0)  <span class="glyphicon glyphicon-plus-sign adddept"  data-toggle="popover"  data-html="true" data-placement="bottom" data-content="" style="display: none"></span></a></li>';
        
-         $node.parents(".popover").parent().parent().next().find("ul").first().append(menuli);
-         //刷新网页 以下可不做
-          $('ul.firstmenu li a').hover(function(){
-                    $(this).children(".adddept").show();
-                   },function(){
-                          $(this).children(".adddept").hide();
-              });
-          if($(".firstmenu").height()>440){
-             $(".department").css("overflow","scroll");
-          }
+    //      $node.parents(".popover").parent().parent().next().find("ul").first().append(menuli);
+    //      //刷新网页 以下可不做
+    //       $('ul.firstmenu li a').hover(function(){
+    //                 $(this).children(".adddept").show();
+    //                },function(){
+    //                       $(this).children(".adddept").hide();
+    //           });
+    //       if($(".firstmenu").height()>440){
+    //          $(".department").css("overflow","scroll");
+    //       }
           
-    }
+    // }
  
     $(document).ready(function() {
       
@@ -591,13 +482,16 @@ $('#Birthday').datetimepicker({
         
          
 
-        $("#add").click(function(){
-          $("#addModal").modal();
-        });
+        
 
     });
 
         
     </script>
+
+    <?php
+        require "modal.php";
+    ?>
+
     </body>
     </html>
